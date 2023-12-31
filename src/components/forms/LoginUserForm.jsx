@@ -8,7 +8,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import RedirectSuccessButton from '../buttons/RedirectSuccess';
+import LoginAccountText from '../texts/register/LoginAccountText';
 import axios from 'axios';
+
 
 
 const LoginUserForm = () => {
@@ -43,6 +46,7 @@ const LoginUserForm = () => {
         <ToastContainer autoClose={2000}  />
         <Row className="justify-content-center">
           <Col xs={12} sm={8} md={6} lg={6}>
+            <LoginAccountText/>
             <Form onSubmit={handleSubmit(onSubmit)}>
 
               <Form.Group className="mb-3" controlId="formPhone">
@@ -84,10 +88,11 @@ const LoginUserForm = () => {
                   <Form.Text className="errorMsg text-danger">La contraseña debe ser mayor de 6 caracteres</Form.Text>
                 )}
               </Form.Group>
-              <div className="text-center">
+              <div className=" d-flex justify-content-center align-items-center flex-column">
                 <Button variant="success" type="submit">
-                  Registrar
+                  Entrar
                 </Button>
+                <RedirectSuccessButton redirectTo='Registro' />
               </div>
             </Form>
           </Col>

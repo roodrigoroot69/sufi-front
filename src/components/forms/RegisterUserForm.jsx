@@ -9,9 +9,9 @@ import Col from "react-bootstrap/Col";
 import RegisterAccountText from '../../components/texts/register/RegisterAccountText';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import RedirectSuccessButton from '../buttons/RedirectSuccess';
 import axios from 'axios';
 
-import RedirectSuccessButton from '../buttons/RedirectSuccess';
 
 const RegisterUserForm = () => {
 
@@ -105,7 +105,7 @@ const RegisterUserForm = () => {
                   <Form.Text className="errorMsg text-danger">La contraseña debe ser mayor de 6 caracteres</Form.Text>
                 )}
               </Form.Group>
-              <div className=" d-flex justify-content-center align-items-start flex-column">
+              <div className=" d-flex justify-content-center align-items-center flex-column">
                 <Button variant="success" type="submit">
                   Registrar
                 </Button>
