@@ -6,13 +6,12 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import RegisterAccountText from '../../components/texts/register/RegisterAccountText';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 
-const RegisterUserForm = () => {
+const LoginUserForm = () => {
 
   const {
     register,
@@ -44,7 +43,6 @@ const RegisterUserForm = () => {
         <ToastContainer autoClose={2000}  />
         <Row className="justify-content-center">
           <Col xs={12} sm={8} md={6} lg={6}>
-          <RegisterAccountText/>
             <Form onSubmit={handleSubmit(onSubmit)}>
 
               <Form.Group className="mb-3" controlId="formPhone">
@@ -98,4 +96,4 @@ const RegisterUserForm = () => {
   );
 }
 
-export default RegisterUserForm;
+export default LoginUserForm;

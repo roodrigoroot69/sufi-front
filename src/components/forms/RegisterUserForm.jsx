@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
+import RedirectSuccessButton from '../buttons/RedirectSuccess';
 
 const RegisterUserForm = () => {
 
@@ -30,6 +31,9 @@ const RegisterUserForm = () => {
         position: toast.POSITION.TOP_RIGHT,
         className: 'foo-bar'
       });
+      setTimeout(() => {
+        window.location.href = '/entrar'
+      }, 3000);
     }catch (error){
       toast.error(error.response.data.detail, {
         position: toast.POSITION.TOP_RIGHT,
@@ -101,10 +105,11 @@ const RegisterUserForm = () => {
                   <Form.Text className="errorMsg text-danger">La contraseña debe ser mayor de 6 caracteres</Form.Text>
                 )}
               </Form.Group>
-              <div className="text-center">
+              <div className=" d-flex justify-content-center align-items-start flex-column">
                 <Button variant="success" type="submit">
                   Registrar
                 </Button>
+                <RedirectSuccessButton redirectTo='Entrar' />
               </div>
             </Form>
           </Col>
