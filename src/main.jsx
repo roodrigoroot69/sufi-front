@@ -15,7 +15,7 @@ import Index from './pages/main/Index';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Index />,
+    element: <RegisterUser />,
   },
   {
     path: "/registro",
