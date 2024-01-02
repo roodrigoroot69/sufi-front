@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/sufi-front/sw.js', { scope: '/sufi-front/' })})}
