@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-
+import Image from 'react-bootstrap/Image';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -44,7 +44,8 @@ const RegisterUserForm = () => {
 
 
   return (
-      <Container style={{ minHeight: "100vh", padding: "1rem" }}>
+      <Container className='bg-white rounded mt-5' style={{ minHeight: "50vh", padding: "1rem", maxWidth: "58vw" }}>
+        <div className='d-flex justify-content-center mt-3'><Image src="../../../img/icons/icon-128x128.png" roundedCircle /></div>
         <ToastContainer autoClose={2000}  />
         <Row className="justify-content-center">
           <Col xs={12} sm={8} md={6} lg={6}>
@@ -109,7 +110,7 @@ const RegisterUserForm = () => {
                 <Button variant="success" type="submit">
                   Registrar
                 </Button>
-                <RedirectSuccessButton redirectTo='Entrar' />
+                <p className='small'>Si ya tienes cuenta da click aquí <RedirectSuccessButton redirectTo='Entrar' /></p>
               </div>
             </Form>
           </Col>

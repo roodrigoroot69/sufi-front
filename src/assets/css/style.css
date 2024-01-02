@@ -2,7 +2,11 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-#createAccount{
+#createAccount {
     font-weight: bold;
+}
+
+body {
+    background-color: #e7eff3;
 }
 

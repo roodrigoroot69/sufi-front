@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-
+import Image from 'react-bootstrap/Image';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -11,10 +11,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import RedirectSuccessButton from '../buttons/RedirectSuccess';
 import LoginAccountText from '../texts/register/LoginAccountText';
 import axios from 'axios';
-
+import { useAuth } from '../../AuthContext';
 
 
 const LoginUserForm = () => {
+
+  const { login } = useAuth();
 
   const {
     register,
@@ -27,11 +29,13 @@ const LoginUserForm = () => {
 
     try{
       const apiUrl = import.meta.env.VITE_BACKEND_URL;
-      await axios.post(`${apiUrl}/login`, data)
+      let response = await axios.post(`${apiUrl}/login`, data)
       toast.info("Es bueno verte por aquí", {
         position: toast.POSITION.TOP_RIGHT,
         className: 'foo-bar'
       });
+      login(response.data.token)
+      console.log(response.data.token)
     }catch (error){
       toast.error(error.response.data.detail, {
         position: toast.POSITION.TOP_RIGHT,
@@ -42,7 +46,8 @@ const LoginUserForm = () => {
 
 
   return (
-      <Container style={{ minHeight: "100vh", padding: "1rem" }}>
+      <Container className='bg-white rounded mt-5' style={{ minHeight: "50vh", padding: "1rem", maxWidth: "58vw"}}>
+        <div className='d-flex justify-content-center mt-3'><Image src="../../../img/icons/icon-128x128.png" roundedCircle /></div>
         <ToastContainer autoClose={2000}  />
         <Row className="justify-content-center">
           <Col xs={12} sm={8} md={6} lg={6}>
@@ -92,7 +97,9 @@ const LoginUserForm = () => {
                 <Button variant="success" type="submit">
                   Entrar
                 </Button>
-                <RedirectSuccessButton redirectTo='Registro' />
+                <div>
+                  <p className='small'>Si aún no tienes cuenta da click aquí <RedirectSuccessButton redirectTo='Registro' /></p>
+                </div>
               </div>
             </Form>
           </Col>

@@ -4,13 +4,19 @@ import './assets/css/style.css'
 
 import RegisterUser from './pages/users/RegisterUser';
 import LoginUser from './pages/users/LoginUser';
-
+import { AuthProvider } from './AuthContext';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Index from './pages/main/Index';
+
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Index />,
+  },
   {
     path: "/registro",
     element: <RegisterUser />,
@@ -23,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
