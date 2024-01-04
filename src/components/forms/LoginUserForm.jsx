@@ -1,5 +1,6 @@
-import { useForm } from 'react-hook-form';
+import React, { useContext } from 'react';
 
+import { useForm } from 'react-hook-form';
 import Image from 'react-bootstrap/Image';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -11,12 +12,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import RedirectSuccessButton from '../buttons/RedirectSuccess';
 import LoginAccountText from '../texts/register/LoginAccountText';
 import axios from 'axios';
-import { useAuth } from '../../AuthContext';
+import { AuthContext } from '../../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginUserForm = () => {
 
-  const { login } = useAuth();
+  const { login, assingName } = useContext(AuthContext);
+  const navigate = useNavigate();
+
 
   const {
     register,
@@ -35,7 +39,10 @@ const LoginUserForm = () => {
         className: 'foo-bar'
       });
       login(response.data.token)
-      console.log(response.data.token)
+      assingName(response.data.name)
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
     }catch (error){
       toast.error(error.response.data.detail, {
         position: toast.POSITION.TOP_RIGHT,
