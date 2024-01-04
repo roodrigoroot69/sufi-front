@@ -1,9 +1,8 @@
 import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
-
 import CategoriesNav from "../../components/navbars/CategoriesNav";
 import NavbarGeneral from "../../components/navbars/NavbarGeneral";
+import SearchForm from "../../components/forms/SearchForm";
+
 
 const Index = () => {
   return (
@@ -11,6 +10,7 @@ const Index = () => {
       <NavbarGeneral/>
       <Container>
         <CategoriesNav/>
+        <SearchForm/>
       </Container>
     </div>
   );

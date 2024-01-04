@@ -10,3 +10,18 @@ body {
     background-color: #e7eff3;
 }
 
+#linkRegister{
+    color: white;
+}
+
+#btnEntrar:hover{
+    color: white;
+}
+
+#linkEntrar{
+    color: #198754;
+}
+
+#linkEntrar:hover{
+    color: white;
+}

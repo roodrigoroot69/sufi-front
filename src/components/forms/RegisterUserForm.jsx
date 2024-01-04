@@ -45,7 +45,7 @@ const RegisterUserForm = () => {
 
   return (
       <Container className='bg-white rounded mt-5' style={{ minHeight: "50vh", padding: "1rem", maxWidth: "58vw" }}>
-        <div className='d-flex justify-content-center mt-3'><Image src="../../../img/icons/icon-128x128.png" roundedCircle /></div>
+        <div className='d-flex justify-content-center mt-3'><Image src="../../assets/img/icons/icon-128x128.png" roundedCircle /></div>
         <ToastContainer autoClose={2000}  />
         <Row className="justify-content-center">
           <Col xs={12} sm={8} md={6} lg={6}>
