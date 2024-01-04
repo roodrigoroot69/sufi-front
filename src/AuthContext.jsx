@@ -1,5 +1,7 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import Cookies from 'js-cookie';
+
 
 const AuthContext = createContext();
 
@@ -9,19 +11,22 @@ const AuthProvider = ({ children }) => {
 
   const login = (newToken) => {
     setToken(newToken);
+    Cookies.set('token', newToken);
   };
 
   const logout = () => {
-    setToken(null);
+    setToken('');
+    Cookies.remove('token');
   };
 
 
   const assingName = (name) => {
     setName(name);
+    Cookies.set('name', name);
   };
 
   const clenaName = () => {
-    setName(null);
+    setName('');
   };
 
   return (

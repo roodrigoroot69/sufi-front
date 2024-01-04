@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,10 +6,20 @@ import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import { AuthContext } from "../../AuthContext";
+import Cookies from "js-cookie";
 
 const NavbarGeneral = () => {
-  const { token, name } = useContext(AuthContext);
+  const [token, setToken] = useState(null);
+  const [name, setName] = useState(null);
+
+  useEffect( () =>{
+    const token = Cookies.get('token');
+    const name = Cookies.get('name');
+
+    // Actualizar el estado con el valor de la cookie
+    setToken(token);
+    setName(name);
+  }, [])
 
   return (
     <Container>
@@ -30,7 +40,7 @@ const NavbarGeneral = () => {
                 <p
                 className="d-flex align-items-center"
                 style={{height: '100%'}}
-                >Hola, {name.charAt(0).toUpperCase() + name.slice(1)}</p>
+                >Hola, {name}</p>
               ) : (
                 <div className="d-flex align-items-center" style={{maxWidth: '50vh'}}>
                   <Col xs="auto">
