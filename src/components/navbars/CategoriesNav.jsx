@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const CategoriesNav = () => {
 
-//  const [categories setCategories] = useState()
+  const [categories, setCategories] = useState([]);
 
   useEffect( ()=>{
     const fetchData = async () => {
@@ -14,7 +14,7 @@ const CategoriesNav = () => {
       try{
         const apiUrl = import.meta.env.VITE_BACKEND_URL;
         let response = await axios.get(`${apiUrl}/categories`)
-        console.log(response.data)
+        setCategories(response.data)
       }catch (error){
         console.log(error)
     }
@@ -25,7 +25,9 @@ const CategoriesNav = () => {
   return (
     <Container>
     <div className="d-flex justify-content-center">
-    <BadgedNav/>
+    {categories.map((category) => (
+      <BadgedNav key={category.id} category={category.name} label_color={category.label_color} />
+      ))}
     </div>
     </Container>
   );
